@@ -39,6 +39,21 @@ __global__ void __launch_bounds__((BM / TM) * (BN / TN))
     // TODO(Part 3b): load the BM x BK tile of A into As (transposed) and the
     // BK x BN tile of B into Bs. There are NT threads but BM*BK and BK*BN
     // elements, so each thread must load several elements.
+    for (int idx = tid; idx < BM*BK; idx += NT) {
+      int m = idx / BK;
+      int k = idx % BK;
+      int global_row = blockIdx.y * BM + m;
+      int global_col = k0 + k;
+      As[k][m] = A[(size_t)global_row * K + global_col];
+    }
+
+    for (int idx = tid; idx < BK*BN; idx += NT) {
+      int k = idx / BN;
+      int n = idx % BN;
+      int global_row = k0 + k;
+      int global_col = blockIdx.x * BN + n;
+      Bs[k][n] = B[(size_t)global_row * N + global_col];
+    }
 
     __syncthreads();
     // GIVEN: outer product. Per k, each thread loads TM values of A and TN
@@ -52,10 +67,17 @@ __global__ void __launch_bounds__((BM / TM) * (BN / TN))
     __syncthreads();
   }
   // TODO(Part 3b): write acc[i][j] to C:  C = alpha * acc + beta * C
+  for (int i = 0; i < TM; i++) {
+    for (int j = 0; j < TN; j++) {
+      int row = blockIdx.y * BM + tr * TM + i;
+      int col = blockIdx.x * BN + tc * TN + j;
+      C[(size_t)row * N +  col] = alpha * acc[i][j] + beta * C[(size_t)row * N + col];
+    }
+  }
 }
 
 // Set to true once your sgemm_reg2d works.
-constexpr bool kReg2DImplemented = false;
+constexpr bool kReg2DImplemented = true;
 
 template <int BM, int BN, int BK, int TM, int TN>
 bool launch_reg2d(int M, int N, int K, float alpha, const float* A,
