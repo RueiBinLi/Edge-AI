@@ -47,6 +47,9 @@ static const KernelEntry kKernels[] = {
     {"reg2d_128x128x16_8x8", launch_reg2d<128, 128, 16, 8, 8>},
     {"reg2d_128x256x8_8x8", launch_reg2d<128, 256, 8, 8, 8>},
     {"reg2d_128x128x8_16x16", launch_reg2d<128, 128, 8, 16, 16>},
+    {"vec4_128x128x8_8x8", launch_vec4<128, 128, 8, 8, 8>},
+    {"vec4occ_128x128x8_8x8", launch_vec4occ<128, 128, 8, 8, 8>},
+    {"vec4db_128x128x8_8x8", launch_vec4db<128, 128, 8, 8, 8>},
 };
 
 // =============================================================================
@@ -61,4 +64,8 @@ static const KernelEntry kKernels[] = {
 // =============================================================================
 #define HAS_PART4_CHAIN 1
 static const std::vector<const char*> kPart4Chain = {
+    "reg2d_128x128x8_8x8",
+    "vec4_128x128x8_8x8",
+    // "vec4occ_128x128x8_8x8",
+    "vec4db_128x128x8_8x8",
 };
