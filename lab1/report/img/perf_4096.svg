@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 472" width="780" height="472" font-family="'Noto Sans CJK TC','Noto Sans',Helvetica,Arial,sans-serif">
+<rect width="780" height="472" fill="#fcfcfb"/>
+<text x="16" y="26" font-size="16" font-weight="600" fill="#0b0b0b">各 kernel 在 4096³ 的效能（GFLOP/s，越長越快）</text>
+<text x="16" y="44" font-size="12" fill="#52514e">RTX 5090，./sgemm all 4096 4096 4096；灰色是 cuBLAS 參考值，peak FP32 ≈ 104,753 GFLOP/s</text>
+<line x1="210.0" y1="50" x2="210.0" y2="420" stroke="#e1e0d9" stroke-width="1"/>
+<text x="210.0" y="436" font-size="11" fill="#898781" text-anchor="middle">0k</text>
+<line x1="278.6" y1="50" x2="278.6" y2="420" stroke="#e1e0d9" stroke-width="1"/>
+<text x="278.6" y="436" font-size="11" fill="#898781" text-anchor="middle">10k</text>
+<line x1="347.1" y1="50" x2="347.1" y2="420" stroke="#e1e0d9" stroke-width="1"/>
+<text x="347.1" y="436" font-size="11" fill="#898781" text-anchor="middle">20k</text>
+<line x1="415.7" y1="50" x2="415.7" y2="420" stroke="#e1e0d9" stroke-width="1"/>
+<text x="415.7" y="436" font-size="11" fill="#898781" text-anchor="middle">30k</text>
+<line x1="484.3" y1="50" x2="484.3" y2="420" stroke="#e1e0d9" stroke-width="1"/>
+<text x="484.3" y="436" font-size="11" fill="#898781" text-anchor="middle">40k</text>
+<line x1="552.9" y1="50" x2="552.9" y2="420" stroke="#e1e0d9" stroke-width="1"/>
+<text x="552.9" y="436" font-size="11" fill="#898781" text-anchor="middle">50k</text>
+<line x1="621.4" y1="50" x2="621.4" y2="420" stroke="#e1e0d9" stroke-width="1"/>
+<text x="621.4" y="436" font-size="11" fill="#898781" text-anchor="middle">60k</text>
+<line x1="690.0" y1="50" x2="690.0" y2="420" stroke="#e1e0d9" stroke-width="1"/>
+<text x="690.0" y="436" font-size="11" fill="#898781" text-anchor="middle">70k</text>
+<text x="450.0" y="456" font-size="12" fill="#52514e" text-anchor="middle">GFLOP/s</text>
+<text x="202" y="68" font-size="12" fill="#0b0b0b" text-anchor="end">cuBLAS</text>
+<path d="M210,56 h435.31 a4.00,4.00 0 0 1 4.00,4.00 v8.00 a4.00,4.00 0 0 1 -4.00,4.00 h-435.31 z" fill="#898781"><title>cuBLAS: 64,065.7 GFLOP/s</title></path>
+<text x="655.3" y="68" font-size="11" fill="#52514e">64,066</text>
+<text x="202" y="94" font-size="12" fill="#0b0b0b" text-anchor="end">naive</text>
+<path d="M210,82 h3.24 a3.24,3.24 0 0 1 3.24,3.24 v9.51 a3.24,3.24 0 0 1 -3.24,3.24 h-3.24 z" fill="#2a78d6"><title>naive: 945.8 GFLOP/s</title></path>
+<text x="222.5" y="94" font-size="11" fill="#52514e">946</text>
+<text x="202" y="120" font-size="12" fill="#0b0b0b" text-anchor="end">coalesced</text>
+<path d="M210,108 h46.09 a4.00,4.00 0 0 1 4.00,4.00 v8.00 a4.00,4.00 0 0 1 -4.00,4.00 h-46.09 z" fill="#2a78d6"><title>coalesced: 7,304.8 GFLOP/s</title></path>
+<text x="266.1" y="120" font-size="11" fill="#52514e">7,305</text>
+<text x="202" y="146" font-size="12" fill="#0b0b0b" text-anchor="end">smem16</text>
+<path d="M210,134 h62.40 a4.00,4.00 0 0 1 4.00,4.00 v8.00 a4.00,4.00 0 0 1 -4.00,4.00 h-62.40 z" fill="#2a78d6"><title>smem16: 9,683.8 GFLOP/s</title></path>
+<text x="282.4" y="146" font-size="11" fill="#52514e">9,684</text>
+<text x="202" y="172" font-size="12" fill="#0b0b0b" text-anchor="end">smem32</text>
+<path d="M210,160 h56.80 a4.00,4.00 0 0 1 4.00,4.00 v8.00 a4.00,4.00 0 0 1 -4.00,4.00 h-56.80 z" fill="#2a78d6"><title>smem32: 8,866.9 GFLOP/s</title></path>
+<text x="276.8" y="172" font-size="11" fill="#52514e">8,867</text>
+<text x="202" y="198" font-size="12" fill="#0b0b0b" text-anchor="end">reg2d_128x128x8_8x8</text>
+<path d="M210,186 h128.41 a4.00,4.00 0 0 1 4.00,4.00 v8.00 a4.00,4.00 0 0 1 -4.00,4.00 h-128.41 z" fill="#2a78d6"><title>reg2d_128x128x8_8x8: 19,310.5 GFLOP/s</title></path>
+<text x="348.4" y="198" font-size="11" fill="#52514e">19,310</text>
+<text x="202" y="224" font-size="12" fill="#0b0b0b" text-anchor="end">reg2d_64x64x8_4x4</text>
+<path d="M210,212 h223.42 a4.00,4.00 0 0 1 4.00,4.00 v8.00 a4.00,4.00 0 0 1 -4.00,4.00 h-223.42 z" fill="#2a78d6"><title>reg2d_64x64x8_4x4: 33,164.7 GFLOP/s</title></path>
+<text x="443.4" y="224" font-size="11" fill="#52514e">33,165</text>
+<text x="202" y="250" font-size="12" fill="#0b0b0b" text-anchor="end">reg2d_128x64x8_8x4</text>
+<path d="M210,238 h183.25 a4.00,4.00 0 0 1 4.00,4.00 v8.00 a4.00,4.00 0 0 1 -4.00,4.00 h-183.25 z" fill="#2a78d6"><title>reg2d_128x64x8_8x4: 27,307.8 GFLOP/s</title></path>
+<text x="403.3" y="250" font-size="11" fill="#52514e">27,308</text>
+<text x="202" y="276" font-size="12" fill="#0b0b0b" text-anchor="end">reg2d_128x128x16_8x8</text>
+<path d="M210,264 h230.19 a4.00,4.00 0 0 1 4.00,4.00 v8.00 a4.00,4.00 0 0 1 -4.00,4.00 h-230.19 z" fill="#2a78d6"><title>reg2d_128x128x16_8x8: 34,152.1 GFLOP/s</title></path>
+<text x="450.2" y="276" font-size="11" fill="#52514e">34,152</text>
+<text x="202" y="302" font-size="12" fill="#0b0b0b" text-anchor="end">reg2d_128x256x8_8x8</text>
+<path d="M210,290 h124.77 a4.00,4.00 0 0 1 4.00,4.00 v8.00 a4.00,4.00 0 0 1 -4.00,4.00 h-124.77 z" fill="#2a78d6"><title>reg2d_128x256x8_8x8: 18,779.6 GFLOP/s</title></path>
+<text x="344.8" y="302" font-size="11" fill="#52514e">18,780</text>
+<text x="202" y="328" font-size="12" fill="#0b0b0b" text-anchor="end">reg2d_128x128x8_16x16</text>
+<path d="M210,316 h5.40 a4.00,4.00 0 0 1 4.00,4.00 v8.00 a4.00,4.00 0 0 1 -4.00,4.00 h-5.40 z" fill="#2a78d6"><title>reg2d_128x128x8_16x16: 1,370.4 GFLOP/s</title></path>
+<text x="225.4" y="328" font-size="11" fill="#52514e">1,370</text>
+<text x="202" y="354" font-size="12" fill="#0b0b0b" text-anchor="end">vec4_128x128x8_8x8</text>
+<path d="M210,342 h323.06 a4.00,4.00 0 0 1 4.00,4.00 v8.00 a4.00,4.00 0 0 1 -4.00,4.00 h-323.06 z" fill="#2a78d6"><title>vec4_128x128x8_8x8: 47,696.4 GFLOP/s</title></path>
+<text x="543.1" y="354" font-size="11" fill="#52514e">47,696</text>
+<text x="202" y="380" font-size="12" fill="#0b0b0b" text-anchor="end">vec4occ_128x128x8_8x8</text>
+<path d="M210,368 h179.56 a4.00,4.00 0 0 1 4.00,4.00 v8.00 a4.00,4.00 0 0 1 -4.00,4.00 h-179.56 z" fill="#2a78d6"><title>vec4occ_128x128x8_8x8: 26,768.6 GFLOP/s</title></path>
+<text x="399.6" y="380" font-size="11" fill="#52514e">26,769</text>
+<text x="202" y="406" font-size="12" fill="#0b0b0b" text-anchor="end">vec4db_128x128x8_8x8</text>
+<path d="M210,394 h317.02 a4.00,4.00 0 0 1 4.00,4.00 v8.00 a4.00,4.00 0 0 1 -4.00,4.00 h-317.02 z" fill="#2a78d6"><title>vec4db_128x128x8_8x8: 46,814.7 GFLOP/s</title></path>
+<text x="537.0" y="406" font-size="11" fill="#52514e">46,815</text>
+<line x1="210" y1="50" x2="210" y2="420" stroke="#898781" stroke-width="1"/>
+</svg>
